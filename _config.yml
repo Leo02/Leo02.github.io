@@ -1,6 +1,6 @@
 markdown:         kramdown
 highlighter:      rouge
-permalink:        /vol/:day:month:year/:title/
+permalink:        /vol/:title/
 
 title:            "Zac"
 url:              http://zaac.ml
