@@ -3,7 +3,7 @@ highlighter:      rouge
 permalink:        /posts/:title/
 
 title:            "Zac"
-url:              http://Leo02.github.io
+url:              http://zaac.ml
 feed:             /feed.xml
 author:
     name:         Zac
