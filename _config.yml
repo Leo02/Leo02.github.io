@@ -1,0 +1,13 @@
+markdown:         kramdown
+highlighter:      rouge
+permalink:        /posts/:title/
+
+title:            "Zac"
+url:              http://Leo02.github.io
+feed:             /feed.xml
+author:
+    name:         Zac
+description:      "ZAAAAAAAAAC"
+copyright:        "CopryRight 2017"
+headdesc:         "ZAAAAAAAAAC"
+headkeys:         "ZAAAAAAAAAC"
