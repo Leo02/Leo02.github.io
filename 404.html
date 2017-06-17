@@ -1,8 +1,14 @@
 ---
-layout:         page
-title:          404
+layout: default
+permalink: /404.html
+title: 404 Not Found
 ---
-
-<div class="notfound">404</div>
-
-<div class="not">这个页面真的已经不存在了，报告给我吧。soundbbg at gmail。</dov>
+<header>
+  <h1 class="header-small">
+    <a href="{{site.url}}{{site.baseurl}}">{{ site.name }}</a>
+  </h1>
+</header>
+<div class="page">
+  <h1 class="page-title">{{ page.title }}</h1>
+  <span>Sorry, but the page you were trying to view does not exist.</span>
+</div>

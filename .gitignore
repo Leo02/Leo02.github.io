@@ -1,5 +1,5 @@
 _site
-*.sw[mnpo]
-*.un~
-.DS_Store
-*~
+.sass-cache
+Gemfile.lock
+_drafts
+.jsbeautifyrc
