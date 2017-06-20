@@ -38,13 +38,8 @@ layout: default
     {% endif %}
     {% if paginator.page == paginator.total_pages %}
     <span class='page-link dots'>…</span>
-    {% elseif paginator.page == paginator.total_pages-1 %}
     {% else %}
     {% endif %}
-    {% if paginator.page == paginator.total_pages-1 %}
-      <a class='page-link' href='{{ paginator.previous_page_path }}'>{{ paginator.previous_page }}</a>
-      {% else %}
-      {% endif %}
     {% else %}
     {% endif %}
       
@@ -54,9 +49,11 @@ layout: default
     
       {% if paginator.next_page %}
       <a class='page-link' href='{{ paginator.next_page_path }}'>{{ paginator.next_page }}</a>
+      {% if paginator.page == paginator.total_pages | minus: 1 %}
+      {% else %}
       <span class='page-link dots'>…</span>
       <a class='page-link' href='{{ site.url }}{{ site.baseurl }}/page{{ paginator.total_pages }}'>{{ paginator.total_pages }}</a>
-
+      {% endif %}
     <a class='page-link next' href='{{ paginator.page }}'>
         Next
     </a>
