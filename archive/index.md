@@ -3,16 +3,15 @@ layout:  page
 title: 归档
 description: 归档
 ---
-<ul class="archive">
+<ul class="postlist">
 {% for post in site.posts %}
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
   {% if year != y %}
     {% assign year = y %}
-    <li class="year">{{ y }}</li>
+    <h2>{{ y }}</h2>
   {% endif %}
-  <li class="item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-  </li>
+                              <li class="archive-post archive-day" data-date="{{ post.date | date:"%Y%m%d" }}">
+                            <a class="archive-post-title" href="{{ post.url }}">{{ post.title }}</a>
+                            </li>
 {% endfor %}
 </ul>
