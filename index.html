@@ -1,72 +1,98 @@
----
-layout: default
----
+{% include header.html %}
+	<div id="main">
 
-<header class="header">
-  <div class="header-title">
-    <a href="{{ site.url }}{{ site.baseurl }}">{{ site.name }}</a>
-  </div>
-  <nav class="header-nav">
-    {% for nav in site.nav %}
-    {% if nav.url contains 'http://' or nav.url contains 'https://' %}
-    <a href="{{ nav.url }}">{{ nav.name }}</a>
-    {% else %}
-    <a href="{{ nav.url | prepend: site.baseurl }}">{{ nav.name }}</a>
-    {% endif %}
-    {% endfor %}
-  </nav>
-</header>
+<div id='post-list' class="container">
 
-<div class="list">
-{% if site.posts.size == 0 %}
-  <h2>No post found</h2>
-{% else %}
-<!-- This loops through the paginated posts -->
+    <header class="index-header">
+        <img src="https://gravatar.ihuan.me/avatar/f4ef777876c6041d07a7e0bd48384e71">
+        <section>
+            <h1>{{ site.name }}</h1>
+            <h2>{{ site.description }}</h2>
+        </section>
+    </header>
+	
 {% for post in paginator.posts %}
-  <div class="list-post">
-    {% if post.link %}
-    <a href="{{ post.link }}">
+        {% if post.img %}    
+    	<article class="hasImage">
+	<div class="post-info">
+		<header class="subheader">
+			<time datetime='{{ site.time | date_to_xmlschema }}' class="post-date">{{ page.date | date:"%b %d,%Y"}}</time>
+		</header>
+		<h3 class='post-title'>
+			{% if post.link %}
+			<a href='{{ post.link }}'>
+            {% else %}
+            <a href='{{ post.url | prepend: site.baseurl }}'>
+            {% endif %}
+			{{ post.title }}
+		    </a>
+		</h3>
+		<section class="post-excerpt">
+			{% if post.description %} 
+			{{ post.description }}
+			{% else %}
+			{{ post.content ||split:'<!-- more -->' | first }}
+			{% endif %} 
+		</section>
+	</div><img data-original="{{ post.img }}" class="post-image">
+	
+</article>
     {% else %}
-    <a href="{{ post.url | prepend: site.baseurl }}">
-    {% endif %}  
-      <div class="list-post-date">
-        <time>{{ post.date | date_to_string }}</time>
-      </div>
-      <div class="list-post-title">
-        {{ post.title }}
-      </div>
-      {% if post.description %}
-      <div class="list-post-desc">
-        {{ post.description }}
-      </div>
-      {% endif %}
-    </a>
 
-
-  </div>
+    	<article class="noImage">
+	<div class="post-info">
+		<header class="subheader">
+			<time datetime='{{ site.time | date_to_xmlschema }}' class="post-date">{{ page.date | date:"%b %d,%Y"}}</time>
+		</header>
+		<h3 class='post-title'>
+			{% if post.link %}
+			<a href='{{ post.link }}'>
+            {% else %}
+            <a href='{{ post.url | prepend: site.baseurl }}'>
+            {% endif %}
+			{{ post.title }}
+		    </a>
+		</h3>
+		<section class="post-excerpt">
+			{% if post.description %} 
+			{{ post.description }}
+			{% else %}
+			{{ post.content ||split:'<!-- more -->' | first }}
+			{% endif %} 
+		</section>
+	</div>
+</article>
+    {% endif %} 
 {% endfor %}
-  <!-- Pagination links -->
-  <div class="list-pagination">
-    <span class="list-pagination-previous">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous">
-          &#xE000; previous
-        </a>
-      {% else %}
+</div>
 
-      {% endif %}
-    </span>
 
-    <span class="list-pagination-next">
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next">
-          next &#xE001;
-        </a>
-      {% else %}
+<nav class='pagination container'>
+  <div class='page-links'>
 
-      {% endif %}
-    </span>
+    {% if paginator.previous_page %}
+    <a class='page-link prev' href='{{ paginator.previous_page_path | prepend: site.baseurl }}'>
+      Prev
+    </a>
+    {% else %}
+    {% endif %}
+    {% if paginator.next_page %}
+    <a class='page-link next' href='{{ paginator.next_page_path | prepend: site.baseurl }}'>
+        Next
+    </a>
+    {% else %}
+    {% endif %}
+    
 
   </div>
-{% endif %}
-</div>
+</nav>
+
+
+
+
+</div> 
+
+{% include footer.html %}
+
+</body>
+</html>
