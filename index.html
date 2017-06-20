@@ -32,7 +32,7 @@ layout: default
     	<article class="noImage">
 	<div class="post-info">
 		<header class="subheader">
-			<time datetime='{{ site.time | date_to_xmlschema }}' class="post-date">{{ page.date | date:"%b %d,%Y"}}</time>
+			<time datetime='{{ site.time | date:"%b %d,%Y" }}' class="post-date">{{ page.date | date:"%b %d,%Y"}}</time>
 		</header>
 		<h3 class='post-title'>
 			{% if post.link %}
