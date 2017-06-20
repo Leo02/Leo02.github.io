@@ -1,19 +1,6 @@
 ---
 layout: default
 ---
-{% include header.html %}
-	<div id="main">
-
-<div id='post-list' class="container">
-
-    <header class="index-header">
-        <img src="https://gravatar.ihuan.me/avatar/f4ef777876c6041d07a7e0bd48384e71">
-        <section>
-            <h1>{{ site.name }}</h1>
-            <h2>{{ site.description }}</h2>
-        </section>
-    </header>
-	
 {% for post in paginator.posts %}
         {% if post.img %}    
     	<article class="hasImage">
@@ -94,8 +81,3 @@ layout: default
 
 
 </div> 
-
-{% include footer.html %}
-
-</body>
-</html>
