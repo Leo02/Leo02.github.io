@@ -17,11 +17,7 @@ layout: default
 		    </a>
 		</h3>
 		<section class="post-excerpt">
-			{% if post.description %} 
-			{{ post.description }}
-			{% else %}
-			{{ post.content ||split:'<!-- more -->' | first }}
-			{% endif %} 
+{{ post.content | truncatehtml: 150 }}
 		</section>
 	</div>
 </article>
