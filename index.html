@@ -32,12 +32,18 @@ layout: default
     <a class='page-link prev' href='/'>
       Prev
     </a>
-      
+    {% if paginator.page == 2 %}
+    {% else %}
+    <a class='page-link' href='/'>1</a>
+    {% endif %}
+    {% if paginator.page == {{ paginator.total_pages }} %}
+    <span class='page-link dots'>…</span>
+    {% else %}
+    {% endif %}
       <a class='page-link' href='{{ paginator.previous_page_path }}'>{{ paginator.previous_page }}</a>
     {% else %}
     {% endif %}
       
-    
       
       <span class='page-link current'>{{ paginator.page }}</span>
       
