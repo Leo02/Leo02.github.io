@@ -2,11 +2,11 @@
 layout: default
 ---
 {% for post in paginator.posts %}
-        {% if page.img %}    
+        {% if post.img %}    
     	<article class="hasImage">
 	<div class="post-info">
 		<header class="subheader">
-			<time datetime='{{ post.date | date_to_xmlschema }}' class="post-date">{{ post.date | date:"%b %d,%Y"}}</time>
+			<time datetime='{{ post.date | date: '%B %d, %Y '}}' class="post-date">{{ post.date | date: '%B %d, %Y '}}</time>
 		</header>
 		<h3 class='post-title'>
 			{% if post.link %}
@@ -24,7 +24,7 @@ layout: default
 			{{ post.content ||split:'<!-- more -->' | first }}
 			{% endif %} 
 		</section>
-	</div><img data-original="{{ page.img }}" class="post-image">
+	</div><img data-original="{{ post.img }}" class="post-image">
 	
 </article>
     {% else %}
