@@ -32,11 +32,10 @@ layout: default
     <a class='page-link prev' href='/'>
       Prev
     </a>
-    <a class='page-link' href='/'>1</a>
-    {% else %}
-    {% endif %}
       
       <a class='page-link' href='{{ paginator.previous_page_path }}'>{{ paginator.previous_page }}</a>
+    {% else %}
+    {% endif %}
       
     
       
@@ -45,15 +44,7 @@ layout: default
     
       {% if paginator.next_page %}
       <a class='page-link' href='{{ paginator.next_page_path }}'>{{ paginator.next_page }}</a>
-      {% else %}
-      {% endif %}
-        
-          
-        <span class='page-link dots'>…</span>
-        
-      
-    
-      {% if paginator.next_page %}
+      <span class='page-link dots'>…</span>
       <a class='page-link' href='{{ site.url }}{{ site.baseurl }}/page{{ paginator.total_pages }}'>{{ paginator.total_pages }}</a>
 
     <a class='page-link next' href='{{ paginator.page }}'>
@@ -66,6 +57,7 @@ layout: default
 
   </div>
 </nav>
+
 
 
 
