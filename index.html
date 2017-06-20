@@ -2,33 +2,6 @@
 layout: default
 ---
 {% for post in paginator.posts %}
-        {% if post.img %}    
-    	<article class="hasImage">
-	<div class="post-info">
-		<header class="subheader">
-			<time datetime='{{ post.date | date: '%B %d, %Y '}}' class="post-date">{{ post.date | date: '%B %d, %Y '}}</time>
-		</header>
-		<h3 class='post-title'>
-			{% if post.link %}
-			<a href='{{ post.link }}'>
-            {% else %}
-            <a href='{{ post.url | prepend: site.baseurl }}'>
-            {% endif %}
-			{{ post.title }}
-		    </a>
-		</h3>
-		<section class="post-excerpt">
-			{% if post.description %} 
-			{{ post.description }}
-			{% else %}
-			{{ post.content ||split:'<!-- more -->' | first }}
-			{% endif %} 
-		</section>
-	</div><img data-original="{{ post.img }}" class="post-image">
-	
-</article>
-    {% else %}
-
     	<article class="noImage">
 	<div class="post-info">
 		<header class="subheader">
@@ -52,7 +25,6 @@ layout: default
 		</section>
 	</div>
 </article>
-    {% endif %} 
 {% endfor %}
 </div>
 
