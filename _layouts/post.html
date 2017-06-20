@@ -92,6 +92,49 @@
 		<footer class="post-footer">
 		</footer>
 	</article>
+			<aside class="read-more container">
+			<h1>Read More</h1>
+				{% if page.previous.url %}
+				<article class="noImage">
+	<div class="post-info">
+		<header class="subheader">
+			<time datetime='{{ page.previous.date | date_to_xmlschema }}' class="post-date">{{ page.previous.date | date:"%b %d,%Y" }}</time>
+			
+		</header>
+		<h3 class='post-title'>
+			<a href='{{ page.previous.title }}'>{{ page.previous.title }}</a>
+		</h3>
+		<section class="post-excerpt">
+			{% if page.previous.description %} 
+			{{ page.previous.description }}
+			{% else %}
+			{{ page.previous.content ||split:'<!-- more -->' | first }}
+			{% endif %} 
+		</section>
+	</div>
+  {% endif %}	
+</article>
+{% if page.next.url %}
+				<article class="noImage">
+	<div class="post-info">
+		<header class="subheader">
+			<time datetime='{{ page.next.date | date_to_xmlschema }}' class="post-date">{{ page.next.date | date:"%b %d,%Y" }}</time>
+			
+		</header>
+		<h3 class='post-title'>
+			<a href='{{ page.next.url }}'>{{ page.next.title }}</a>
+		</h3>
+		<section class="post-excerpt">
+			{% if page.next.description %} 
+			{{ page.next.description }}
+			{% else %}
+			{{ page.next.content ||split:'<!-- more -->' | first }}
+			{% endif %} 
+		</section>
+	</div>
+  {% endif %}	
+</article></aside>	
+
 </main>
 </div> 
 
