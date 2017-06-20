@@ -2,7 +2,7 @@
 layout: default
 ---
 {% for post in paginator.posts %}
-        {% if post.img %}    
+        {% if page.img %}    
     	<article class="hasImage">
 	<div class="post-info">
 		<header class="subheader">
@@ -24,7 +24,7 @@ layout: default
 			{{ post.content ||split:'<!-- more -->' | first }}
 			{% endif %} 
 		</section>
-	</div><img data-original="{{ post.img }}" class="post-image">
+	</div><img data-original="{{ page.img }}" class="post-image">
 	
 </article>
     {% else %}
