@@ -5,7 +5,7 @@ layout: default
     	<article class="noImage">
 	<div class="post-info">
 		<header class="subheader">
-			<time datetime='{{ site.time | date:"%b %d,%Y" }}' class="post-date">{{ page.date | date:"%b %d,%Y"}}</time>
+			<time datetime='{{ post.time | date:"%b %d,%Y" }}' class="post-date">{{ post.date | date:"%b %d,%Y"}}</time>
 		</header>
 		<h3 class='post-title'>
 			{% if post.link %}
@@ -17,7 +17,7 @@ layout: default
 		    </a>
 		</h3>
 		<section class="post-excerpt">
-{{ post.content | truncatehtml: 1 }}
+{{ post.content | truncatehtml: 150 }}
 		</section>
 	</div>
 </article>
