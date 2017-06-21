@@ -20,7 +20,7 @@ layout: default
 			{% if post.description %} 
 			{{ post.description }}
 			{% else %}
-			{{ post.content ||split:'\r\n' | first | strip_html }}
+			{{ post.content ||split:'<!--more-->' | first | strip_html }}
 			{% endif %} 
 		</section>
 	</div>
