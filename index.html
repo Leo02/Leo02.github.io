@@ -48,10 +48,14 @@ layout: default
       <span class='page-link current'>{{ paginator.page }}</span>
       
       {% assign lastpage = paginator.total_pages | minus: 2 %}
+      {% assign last1page = paginator.total_pages | minus: 1 %}
       {% if paginator.next_page %}
       <a class='page-link' href='{{ paginator.next_page_path }}'>{{ paginator.next_page }}</a>
       {% if paginator.page >= lastpage %}
+      {% if paginator.page == last1page %}
+      {% else %}
       <a class='page-link' href='{{ site.url }}{{ site.baseurl }}/page{{ paginator.total_pages }}'>{{ paginator.total_pages }}</a>
+      {% endif %}
       {% else %}
       <span class='page-link dots'>…</span>
       <a class='page-link' href='{{ site.url }}{{ site.baseurl }}/page{{ paginator.total_pages }}'>{{ paginator.total_pages }}</a>
