@@ -29,7 +29,7 @@ layout: default
   <div class='page-links'>
 
     {% if paginator.previous_page %}
-    <a class='page-link prev' href='/'>
+    <a class='page-link prev' href='{{ paginator.previous_page_path }}'>
       Prev
     </a>
     {% if paginator.page == 2 %}
