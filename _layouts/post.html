@@ -97,7 +97,7 @@
 			{% if page.previous.description %} 
 			{{ page.previous.description }}
 			{% else %}
-			{{ page.previous.content ||split:'\n' | first | strip_html }}
+			{{ page.previous.content ||split:'<!-- more -->' | first | strip_html }}
 			{% endif %} 
 		</section>
 	</div>
@@ -117,7 +117,7 @@
 			{% if page.next.description %} 
 			{{ page.next.description }}
 			{% else %}
-			{{ page.next.content ||split:'\n' | first | strip_html }}
+			{{ page.next.content ||split:'<!-- more -->' | first | strip_html }}
 			{% endif %} 
 		</section>
 	</div>
