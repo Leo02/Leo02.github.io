@@ -10,7 +10,7 @@ description: 归档
 {% endfor %}
 
 {% if count > 10000 %}
-    <h3>Total:{{ count | divided_by: 10000 }} 万 {{ count | modulo: 10000 }}字</h3>
+    <h3>Total:{{ count | divided_by: 10000 }}万{{ count | modulo: 10000 }}字</h3>
 {% else %}
     <h3>Total:{{ count }}字</h3>
 {% endif %} 
