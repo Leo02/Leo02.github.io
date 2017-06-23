@@ -1,6 +1,16 @@
 <footer class="site-footer container clearfix">
     <section class="copyright"><a href="">{{ site.name }}</a> &copy; 2017</section>
-    <section class="themeby">Power by Jekyll</section>
+    <section class="themeby">{% assign count = 0 %}
+{% for post in site.posts %}
+    {% assign single_count = post.content | strip_html | strip_newlines | remove: " " | size %}
+    {% assign count = count | plus: single_count %}
+{% endfor %}
+
+{% if count > 10000 %}
+    共计{{ count | divided_by: 10000 }} 万 {{ count | modulo: 10000 }}字
+{% else %}
+    共计{{ count }}字
+{% endif %} </section>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/2.2.2/layzr.min.js"></script>
