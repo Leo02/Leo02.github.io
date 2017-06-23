@@ -7,9 +7,9 @@
 {% endfor %}
 
 {% if count > 10000 %}
-    共计{{ count | divided_by: 10000 }} 万 {{ count | modulo: 10000 }}字
+    共计 {{ count | divided_by: 10000 }}万{{ count | modulo: 10000 }} 字
 {% else %}
-    共计{{ count }}字
+    共计 {{ count }} 字
 {% endif %} </section>
 </footer>
 
