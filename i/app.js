@@ -64,11 +64,11 @@ function highlight(){
 }
 
 function gfw() {
-$(".content a").each(function(){
-var url=$(this).attr('href'); 
+$(".content img").each(function(){
+var url=$(this).attr('src'); 
 var id=url.replace(/http:\/\/ift.tt\//, "");
 var replace=$.ajax({url:"http://zac.gear.host/?i="+id,async:false});
-$(this).attr('href',replace.responseText);      
+$(this).attr('src',replace.responseText);      
 }); 
 }
 
