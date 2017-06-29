@@ -63,6 +63,14 @@ function highlight(){
   });
 }
 
+function gfw() {
+$(".content a").each(function(){
+var url=$(this).attr('href'); 
+var id=url.replace(/http:\/\/ift.tt\//, "");
+var replace=$.ajax({url:"http://zac.gear.host/?i="+id,async:false});
+$(this).attr('href',replace.responseText);      
+}); 
+}
 
 function detail(id){
     if(!window._G){
@@ -74,6 +82,7 @@ function detail(id){
       $('#container').html(_G.post[id].body);
       $('title').html(_G.post[id].title);
       highlight();
+      gfw();
       return;
     }
     $.ajax({
@@ -93,6 +102,7 @@ function detail(id){
 
             $('title').html(data.title + " | " + _config['blog_name']);
             highlight();
+            gfw();
         }
     });  
 
