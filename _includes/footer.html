@@ -15,3 +15,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/layzr.js/2.2.2/layzr.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+$(document).ready(function(){
+$(".post-content img").each(function(){
+var style=$(this).attr('id');
+$(this).wrap('<figure class="'+style+'"></figure>');
+})
+})
+</script>
